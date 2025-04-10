@@ -1,4 +1,7 @@
 import { Component } from '@angular/core';
+import { PhotoService } from '../service/photo.service';
+
+
 
 @Component({
   selector: 'app-tab2',
@@ -6,8 +9,16 @@ import { Component } from '@angular/core';
   styleUrls: ['tab2.page.scss'],
   standalone: false,
 })
+
+
+
+
 export class Tab2Page {
 
-  constructor() {}
+  constructor(public photoService: PhotoService) { }
+
+      anadirGaleria() {
+        this.photoService.anadirAGaleria();
+      }
 
 }

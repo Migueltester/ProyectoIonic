@@ -1,7 +1,7 @@
 <ion-header [translucent]="true">
   <ion-toolbar>
     <ion-title>
-      Tab 2
+      Galería de fotos
     </ion-title>
   </ion-toolbar>
 </ion-header>
@@ -13,5 +13,21 @@
     </ion-toolbar>
   </ion-header>
 
-  <app-explore-container name="Tab 2 page"></app-explore-container>
+  <app-explore-container name="Mis fotos"></app-explore-container>
+
+  <!-- Botón de la cámara -->
+  <ion-fab vertical="top" horizontal="center" slot="fixed">
+    <ion-fab-button (click)="anadirGaleria()">
+      <ion-icon name="camera"></ion-icon>
+    </ion-fab-button>
+  </ion-fab>
+
+  <!-- Grid para mostrar las fotos -->
+  <ion-grid>
+    <ion-row>
+      <ion-col size="6" *ngFor="let photo of photoService.photos; index as position">
+        <ion-img [src]="photo.webviewPath"></ion-img>
+      </ion-col>
+    </ion-row>
+  </ion-grid>
 </ion-content>
